@@ -1,6 +1,6 @@
 const {Plugin, PluginSettingTab, Setting } = require("obsidian");
 
-let server = 'fastgit'
+let server = 'ghproxy'
 
 let proMap = {
 	fastgit:{
@@ -14,9 +14,9 @@ let proMap = {
 		,home:"https://api.mtr.pub/"
 	}
 	,ghproxy:{
-		down:"https://mirror.ghproxy.com/https://github.com/"
-		,raw:"https://mirror.ghproxy.com/https://github.com/"
-		,home:"https://mirror.ghproxy.com/https://github.com/"
+		down:"https://ghproxy.com/https://github.com/"
+		,raw:"https://ghproxy.com/https://raw.githubusercontent.com/"
+		,home:"https://ghproxy.com/https://github.com/"
 	}
 	,gitclone:{
 		down:"https://download.fastgit.org/"
@@ -151,7 +151,7 @@ function apProxy() {
             if (!matchUrl(e)) {
                 return ap(e);
             }
-            new window.Notice("正在通过 ProxyGithub 来代理访问社区插件！")
+            //new window.Notice("正在通过 ProxyGithub 来代理访问社区插件！")
             return proxy(e)
         }
     }
@@ -168,7 +168,7 @@ function apProxy() {
         console.log(ap)
         window.Capacitor.registerPlugin("App").request = function (e){
             matchUrl(e);
-            new window.Notice("正在通过 ProxyGithub 来代理访问社区插件！")
+           // new window.Notice("正在通过 ProxyGithub 来代理访问社区插件！")
             ap(e);
             // if (matchUrl(e)) {
             //     return ap(e);
@@ -190,7 +190,7 @@ function apElectron() {
         window.require("electron").ipcRenderer.send = function (a,b,e,...rest){
 			debugger
             matchUrl(e);
-            new window.Notice("正在通过 ProxyGithub 来代理访问社区插件！")
+           // new window.Notice("正在通过 ProxyGithub 来代理访问社区插件！")
             ap(a,b,e, ...rest);
             // if (matchUrl(e)) {
             //     return ap(e);
@@ -220,10 +220,9 @@ class ProxyGithubSettingTab extends PluginSettingTab {
             .setDesc(`通过选择不同的服务器来切换代理，可以解决某些情况下，某个服务器无法访问的情况。当前代理服务器：${this.plugin.settings.server}`)
             // .setValue(this.plugin.settings.server) // <-- Add me!
             .addDropdown(dropDown => {
-                dropDown.addOption('mirr', '请选择');
+                dropDown.addOption('ghproxy', 'ghproxy');
                 dropDown.addOption('fastgit', 'fastgit');
                 dropDown.addOption('mtr', 'mtr');
-                dropDown.addOption('ghproxy', 'ghproxy');
                 dropDown.addOption('gitclone', 'gitclone');
                 dropDown.addOption('mirr', 'mirr');
                 dropDown.onChange(async (value) =>	{
@@ -248,10 +247,10 @@ module.exports = class ProxyGithub extends Plugin {
         ape.regedit();
         apc.regedit();
         app.regedit();
-        this.settings = {server:'mirr'}
+        this.settings = {server:'ghproxy'}
     }
     async loadSettings() {
-		this.settings = Object.assign({}, {server:'mirr'}, await this.loadData());
+		this.settings = Object.assign({}, {server:'ghproxy'}, await this.loadData());
 	}
     async saveSettings() {
         await this.saveData(this.settings);
