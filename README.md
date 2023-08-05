@@ -46,3 +46,12 @@ juqkai@163.com
 
 - [Obsidian](https://Obsidian.md)
 
+---
+
+## 关于修改部分
+1. 移除大量obsidian右侧提示信息
+2. 优先使用ghproxy进行代理，修改ghproxy部分代码
+
+## 关于安装使用
+1. 下载main.js和manifest.json
+2. 在笔记目录XXX/.obsidian/plugins创建文件夹obsidian-proxy-github，将以上两个文件放入文件夹即可。
