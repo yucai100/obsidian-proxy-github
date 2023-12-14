@@ -1,5 +1,4 @@
 
-
 # Obsidian 社区插件下载修复
 
 因为某些原因，在国内经常无法下载 Obsidian 的社区插件。这个项目的主要目的就是修复这种情况，让国内的用户也可以无障碍的下载社区插件。
@@ -55,3 +54,7 @@ juqkai@163.com
 ## 关于安装使用
 1. 下载main.js和manifest.json
 2. 在笔记目录XXX/.obsidian/plugins创建文件夹obsidian-proxy-github，将以上两个文件放入文件夹即可。
+
+## 20231214更新说明
+1. 修改ghproxy的地址
+PS：让我偷懒下，这次没release，之前下载release的朋友，这次下载main.js覆盖就好。
