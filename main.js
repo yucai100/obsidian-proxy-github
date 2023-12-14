@@ -14,9 +14,9 @@ let proMap = {
 		,home:"https://api.mtr.pub/"
 	}
 	,ghproxy:{
-		down:"https://ghproxy.com/https://github.com/"
-		,raw:"https://ghproxy.com/https://raw.githubusercontent.com/"
-		,home:"https://ghproxy.com/https://github.com/"
+		down:"https://mirror.ghproxy.com/https://github.com/"
+		,raw:"https://mirror.ghproxy.com/https://raw.githubusercontent.com/"
+		,home:"https://mirror.ghproxy.com/https://github.com/"
 	}
 	,gitclone:{
 		down:"https://download.fastgit.org/"
