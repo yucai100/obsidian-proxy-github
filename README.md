@@ -57,4 +57,5 @@ juqkai@163.com
 
 ## 20231214更新说明
 1. 修改ghproxy的地址
+
 PS：让我偷懒下，这次没release，之前下载release的朋友，这次下载main.js覆盖就好。
